@@ -1,1 +1,18 @@
-([+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*){9,20}$
+This expression finds phone numbers
+[+]{0,1}[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\.\/0-9]{9,20}$
+[+]{0,1}[0-9]{0,}[\h]{0,1}[(]{0,1}[0-9]{1,4}[)]{0,1}[-\h\.\0-9]{9,20}
+https://regex101.com/r/5ZNDKx/1
+
+Comments
+[+]{0,1} - Matches the plus symbol zero or one times
+[(]{0,1} - Finds open parenthesis zero or one times
+[0-9]{1,4} - Finds a digit (zeron through nine) at least once but no more than 4 times
+[)]{0,1} - Matches a close parenthesis zero or one times
+[-\s\.\/0-9]
+  - atches a dash
+  \s matches any whitespace character (equal to [\r\n\t\f\v ])
+  \. matches any period
+  \/ matches the forward-slash character
+  0-9 a single character in the range between zero and nine
+{9,20} - repeats to find matches at least nine characters long and no more than 20 characters
+$ - matches must be at the end of the line (ex. "+1 (555) 555-1234 (main)" will not be found)
